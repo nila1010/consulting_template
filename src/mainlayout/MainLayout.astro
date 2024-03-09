@@ -17,13 +17,17 @@ const { pageTitle } = Astro.props;
 
   <body>
     <header><Navigation /></header>
-    <main><slot /></main>
+    <main class="flow-space"><slot /></main>
     <footer></footer>
   </body>
 </html>
 
 <style>
+  main {
+    --space: 5rem;
+  }
+
   footer {
-    height: 20rem;
+    height: 10rem;
   }
 </style>
