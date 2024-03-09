@@ -1,16 +1,18 @@
 ---
-
+import { Icon } from "astro-icon/components";
+import MainLayout from "../mainlayout/MainLayout.astro";
+import InfoBoxHeading from "../components/InfoBoxHeading.astro";
+import OurVision from "../components/OurVision.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <InfoBoxHeading color="var(--heading-color-variant-1)" heading="Services" description="Creative Services For Boost Your Business Growth" imagePath="/src/assets/header_img_about.png" altText="header image" />
+  <OurVision color="var(--heading-color-variant-2)" imagePath="/src/assets/about_vision_img.jpg" altText="our vision image" />
+</MainLayout>
+
+<style>
+  svg {
+    width: 2.72094rem;
+    height: 2.72094rem;
+  }
+</style>

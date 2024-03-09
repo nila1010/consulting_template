@@ -1,0 +1,47 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const { imagePath, altText, heading, description, color } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<section>
+  <Image src={images[imagePath]()} alt={altText} />
+  <article>
+    <h2 style=`--bg: ${color}` class="h2-button-style">{heading}</h2>
+    <p class="sub-heading-style">{description}</p>
+  </article>
+</section>
+
+<style>
+  section {
+    display: grid;
+    align-items: start;
+
+    > * {
+      grid-area: 1 / 1;
+    }
+    container: header / inline-size;
+  }
+
+  article {
+    margin-inline-start: 19cqi;
+    margin-inline-end: 30cqi;
+    margin-block-start: 10cqi;
+    border-radius: 1.8125rem;
+    /* padding: 3rem 3.75rem 3.625rem 3.75rem; */
+    padding: 3cqi 3.75cqi 3.625cqi 3.75cqi;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5.5px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  @container header (width < 1200px) {
+    article {
+      margin-inline-end: 20cqi;
+    }
+  }
+</style>

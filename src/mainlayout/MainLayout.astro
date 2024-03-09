@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import "../styles/reset.css";
+import Navigation from "../components/Navigation.astro";
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500..700&display=swap" rel="stylesheet" />
+    <title>{pageTitle}</title>
+  </head>
+
+  <body>
+    <header><Navigation /></header>
+    <main><slot /></main>
+    <footer></footer>
+  </body>
+</html>
+
+<style>
+  footer {
+    height: 20rem;
+  }
+</style>
