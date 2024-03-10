@@ -1,15 +1,15 @@
 ---
-import { Icon } from "astro-icon/components";
 import MainLayout from "../mainlayout/MainLayout.astro";
 import InfoBoxHeading from "../components/InfoBoxHeading.astro";
 import OurVision from "../components/OurVision.astro";
+import GrowingWithOurClients from "../components/GrowingWithOurClients.astro";
 ---
 
 <MainLayout>
   <InfoBoxHeading color="var(--heading-color-variant-1)" heading="Services" description="Creative Services For Boost Your Business Growth" imagePath="/src/assets/header_img_about.png" altText="header image" />
   <OurVision color="var(--heading-color-variant-2)" imagePath="/src/assets/about_vision_img.jpg" altText="our vision image" />
+  <GrowingWithOurClients color="var(--heading-color-variant-1)" />
 </MainLayout>
-
 <style>
   svg {
     width: 2.72094rem;

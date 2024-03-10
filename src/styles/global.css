@@ -1,6 +1,7 @@
 :root {
   /*Colors*/
   --site-bagground-color: #fff;
+  --site-bagground-secondary-color: #eaeaea;
   --copy-primary-color: #595566;
   --heading-primary-color: #181818;
   --heading-color-variant-1: #ffcc4a;
@@ -13,7 +14,8 @@
   /*Line Heights*/
   --lineheight-step-1: 1.45rem;
   --lineheight-step-2: 1.475rem;
-  --lineheight-step-3: clamp(2.55rem, 1.8707rem + 1.6185cqi, 3.225rem);
+  --lineheight-step-3: 1.8rem;
+  --lineheight-step-4: clamp(2.55rem, 1.8707rem + 1.6185cqi, 3.225rem);
 
   /*Font Size*/
 
@@ -65,6 +67,9 @@ h4 {
   font-family: var(--headings-font);
   color: var(--heading-primary);
 }
+p {
+  max-inline-size: 65ch;
+}
 
 [data-icon] {
   inline-size: 1.23044rem;
@@ -86,11 +91,12 @@ h4 {
 }
 
 .sub-heading-style {
+  inline-size: fit-content;
   color: var(--heading-primary-color);
   font-family: var(--headings-font);
   font-size: var(--font-size-step-5);
   font-weight: var(--font-weight-step-2);
-  line-height: var(--lineheight-step-3);
+  line-height: var(--lineheight-step-4);
   max-inline-size: 41.75rem;
 }
 
@@ -98,4 +104,28 @@ h4 {
   > * + * {
     margin-block-start: var(--space, 2rem);
   }
+}
+
+.spacing-article {
+  div > * {
+    margin-block-end: 1.1875rem;
+  }
+  h2 + p {
+    margin-block-end: 0.875rem;
+  }
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns:
+    [full-start] 1fr
+    [content-start] minmax(0, var(--content)) [content-end]
+    1fr [full-end];
+  > * {
+    grid-column: 2;
+  }
+}
+
+.full-width-grid {
+  grid-area: full;
 }

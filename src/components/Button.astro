@@ -1,0 +1,18 @@
+---
+const { text } = Astro.props;
+---
+
+<button>{text}</button>
+
+<style>
+  button {
+    padding: 0.9375rem 2.125rem;
+    background: var(--heading-primary-color);
+    color: white;
+    font-size: var(--font-size-step-2);
+    font-weight: var(--font-weight-step-1);
+    line-height: var(--lineheight-step-3);
+    border-radius: 3rem;
+    min-inline-size: fit-content;
+  }
+</style>

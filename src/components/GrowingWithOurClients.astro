@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+
+const { color } = Astro.props;
+---
+
+<section class="main-grid">
+  <article class="spacing-article">
+    <div>
+      <h2 style=`--bg: ${color}` class="h2-button-style">Growing with our clients</h2>
+      <p class="sub-heading-style">Our core values & principles</p>
+      <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+    </div>
+    <div>
+      <Button text="Get in touch" />
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    padding: 6.25rem 0;
+    --content: min(70rem, 100% - 2rem * 2);
+    background: var(--site-bagground-secondary-color);
+    container: main-content / inline-size;
+  }
+  article {
+    display: grid;
+    grid: auto / 2fr 1fr;
+    gap: 2rem;
+  }
+  div:last-child {
+    place-self: end;
+  }
+
+  @container main-content (width < 700px) {
+    article {
+      grid: auto / 1fr;
+      gap: 0;
+    }
+
+    div:last-child {
+      place-self: start;
+    }
+  }
+</style>

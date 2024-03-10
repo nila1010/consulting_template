@@ -1,0 +1,17 @@
+---
+const{color, text} = Astro.props;
+---
+
+<h2 style=`--bg: ${color}`>{text}</h2>
+
+<style>{
+  font-family: var(--copy-font);
+  inline-size: fit-content;
+  border-radius: 1.25rem;
+  padding: 0rem 0.9375rem;
+  line-height: var(--lineheight-step-2);
+  font-size: var(--font-size-step-1);
+  letter-spacing: var(--letter-spacing-step-1);
+  text-transform: uppercase;
+  background: var(--bg);
+}</style>
