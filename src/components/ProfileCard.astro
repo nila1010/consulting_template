@@ -1,0 +1,75 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+const { imagePath, altText, profileContent } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+{
+  profileContent.map((card) => (
+    <article>
+      <div>
+        <p>{card.work}</p>
+        <Image src={images[imagePath]()} alt={card.altText} />
+      </div>
+      <h3>{card.name}</h3>
+      <p>{card.text}</p>
+      <div>
+        <Icon name="instagram" />
+        <Icon name="facebook" />
+        <Icon name="twitter" />
+      </div>
+    </article>
+  ))
+}
+
+<style>
+  article {
+    > * + * {
+      margin-block-start: 1.6cqi;
+    }
+
+    h3 + p {
+      margin-block-start: 0.8cqi;
+    }
+
+    > div {
+      p {
+        --bg-color: black;
+        --text-color: white;
+        inline-size: fit-content;
+        background: var(--bg-color);
+        color: var(--text-color);
+        padding: 0.25rem 1.3125rem;
+        border-radius: 1.8125rem;
+        line-height: var(--lineheight-step-3);
+        z-index: 1;
+        place-self: end;
+        margin-inline-end: 2cqi;
+        margin-block-end: 1.5cqi;
+      }
+      &:first-child {
+        img {
+          border-radius: 1.25rem;
+        }
+        display: grid;
+        & > * {
+          grid-area: 1/1;
+        }
+      }
+
+      &:last-child {
+        display: flex;
+        gap: 1.8125rem;
+        place-content: center;
+      }
+    }
+  }
+  [data-icon] {
+    width: 1.44731rem;
+    height: 1.15706rem;
+  }
+</style>
