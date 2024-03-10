@@ -28,6 +28,10 @@ const { color } = Astro.props;
     --content: min(70rem, 100% - 2rem * 2);
     background: var(--site-bagground-secondary-color);
     container: main-content / inline-size;
+
+    > article:last-child {
+      margin-block-start: 2rem;
+    }
   }
   article {
     display: grid;
@@ -52,10 +56,9 @@ const { color } = Astro.props;
     article {
       grid: auto / 1fr;
       gap: 0;
-    }
-
-    div:last-child {
-      place-self: start;
+      div:last-child {
+        place-self: start;
+      }
     }
   }
 </style>
