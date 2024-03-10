@@ -3,9 +3,9 @@
   --site-bagground-color: #fff;
   --site-bagground-secondary-color: #eaeaea;
   --copy-primary-color: #595566;
-  --heading-primary-color: #181818;
-  --heading-color-variant-1: #ffcc4a;
-  --heading-color-variant-2: #4eaf4e;
+  --secondary-color-1: #181818;
+  --secondary-color-2: #ffcc4a;
+  --secondary-color-3: #4eaf4e;
 
   /*Fonts*/
   --copy-font: "Lato", sans-serif;
@@ -65,20 +65,15 @@ h2,
 h3,
 h4 {
   font-family: var(--headings-font);
-  color: var(--heading-primary);
+  color: var(--secondary-color-1);
 }
 p {
   max-inline-size: 65ch;
 }
 
-[data-icon] {
-  inline-size: 1.23044rem;
-  block-size: 1.23044rem;
-}
-
 /*Classes*/
 .h2-button-style {
-  --bg: var(--heading-color-variant-1);
+  --bg: var(--secondary-color-2);
   font-family: var(--copy-font);
   inline-size: fit-content;
   border-radius: 1.25rem;
@@ -92,7 +87,7 @@ p {
 
 .sub-heading-style {
   inline-size: fit-content;
-  color: var(--heading-primary-color);
+  color: var(--secondary-color-1);
   font-family: var(--headings-font);
   font-size: var(--font-size-step-5);
   font-weight: var(--font-weight-step-2);

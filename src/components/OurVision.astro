@@ -57,6 +57,10 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
     grid: auto / 2fr 1fr;
     gap: 2rem;
   }
+  [data-icon] {
+    inline-size: 1.23044rem;
+    block-size: 1.23044rem;
+  }
 
   figure {
     position: relative;
@@ -100,7 +104,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       flex-direction: column-reverse;
       font-size: var(--font-size-step-2);
       font-weight: var(--font-weight-step-0);
-      color: var(--heading-primary-color);
+      color: var(--secondary-color-1);
 
       :last-child {
         font-size: var(--font-size-step-5);

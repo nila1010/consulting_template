@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+const { iconName, heading, text, btn, cta, ctaText, cardContentGwoc } = Astro.props;
+---
+
+{
+  cardContentGwoc.map((card) => (
+    <article class="flow-space">
+      <Icon name={card.iconPath} />
+      <h3>{card.heading}</h3>
+      <p>{card.text}</p>
+      {cta === "true" && (
+        <div>
+          <a href="">{card.ctaText}</a>
+          <Icon name="arrow" />
+        </div>
+      )}
+    </article>
+  ))
+}
+
+<style>
+  article {
+    --space: 1.38rem;
+
+    background: #fff;
+    border-radius: 1.25rem;
+    padding: 2.25rem 1.44rem;
+
+    div {
+      inline-size: fit-content;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--secondary-color-1);
+      font-size: var(--font-size-step-2);
+      font-weight: var(--font-weight-step-1);
+      line-height: var(--lineheight-step-3);
+    }
+
+    p,
+    div {
+      --space: 0.94rem;
+    }
+  }
+
+  [data-icon] {
+    width: 3.29863rem;
+    height: 3.29863rem;
+    background: black;
+  }
+
+  [data-icon="arrow"] {
+    inline-size: 0.81675rem;
+    block-size: 0.66825rem;
+    background: unset;
+  }
+</style>
