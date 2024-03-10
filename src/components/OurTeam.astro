@@ -1,0 +1,20 @@
+---
+const { h2color, heading } = Astro.props;
+---
+
+<section class="main-grid">
+  <article class="spacing-article">
+    <h2 style=`--bg: ${h2color}` class="h2-button-style">{heading}</h2>
+    <p class="sub-heading-style">We champion the bold to achieve the extraordinary</p>
+    <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team.</p>
+  </article>
+  <article class="card-section full-width-grid"></article>
+</section>
+
+<style>
+  section {
+    padding: 6.25rem 0;
+    --content: min(70rem, 100% - 2rem * 2);
+    background: var(--site-bagground-secondary-color);
+  }
+</style>

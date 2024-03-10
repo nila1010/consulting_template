@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-const { imagePath, altText, color } = Astro.props;
+const { imagePath, altText, h2color } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
@@ -11,7 +11,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 <section class="main-grid">
   <article class="spacing-article">
     <div>
-      <h2 style=`--bg: ${color}` class="h2-button-style">Our Vision</h2>
+      <h2 style=`--bg: ${h2color}` class="h2-button-style">Our Vision</h2>
       <p class="sub-heading-style">Turn your ideas into reality.</p>
       <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
       <ul>
