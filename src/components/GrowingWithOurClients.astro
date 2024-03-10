@@ -3,13 +3,13 @@ import Button from "./Button.astro";
 import Card from "./Card.astro";
 import { cardContentGwoc } from "../data/aboutcardinfo.js";
 
-const { color } = Astro.props;
+const { color, heading } = Astro.props;
 ---
 
 <section class="main-grid">
   <article class="spacing-article">
     <div>
-      <h2 style=`--bg: ${color}` class="h2-button-style">Growing with our clients</h2>
+      <h2 style=`--bg: ${color}` class="h2-button-style">{heading}</h2>
       <p class="sub-heading-style">Our core values & principles</p>
       <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
     </div>
@@ -17,7 +17,7 @@ const { color } = Astro.props;
       <Button text="Get in touch" />
     </div>
   </article>
-  <article class="card-section">
+  <article class="card-section full-width-grid">
     <Card cardContentGwoc={cardContentGwoc} cta="true" />
   </article>
 </section>
@@ -44,7 +44,6 @@ const { color } = Astro.props;
   .card-section {
     display: flex;
     gap: 2rem;
-    grid-column: 1/-1;
     padding-inline: max(2rem, 50% - var(--content) / 2);
     overflow: scroll;
     > * {

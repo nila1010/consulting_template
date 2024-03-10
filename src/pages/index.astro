@@ -3,12 +3,14 @@ import MainLayout from "../mainlayout/MainLayout.astro";
 import InfoBoxHeading from "../components/InfoBoxHeading.astro";
 import OurVision from "../components/OurVision.astro";
 import GrowingWithOurClients from "../components/GrowingWithOurClients.astro";
+import OurHistory from "../components/OurHistory.astro";
 ---
 
 <MainLayout>
   <InfoBoxHeading color="var(--secondary-color-2)" heading="Services" description="Creative Services For Boost Your Business Growth" imagePath="/src/assets/header_img_about.png" altText="header image" />
   <OurVision color="var(--secondary-color-3)" imagePath="/src/assets/about_vision_img.jpg" altText="our vision image" />
-  <GrowingWithOurClients color="var(--secondary-color-2)" />
+  <GrowingWithOurClients heading="Growing with our clients" color="var(--secondary-color-2)" />
+  <OurHistory heading="Our History" color="var(--secondary-color-3)" imagePath="/src/assets/our_history_img.png" altText="out history image" />
 </MainLayout>
 <style>
   svg {
