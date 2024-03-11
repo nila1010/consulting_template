@@ -1,7 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 import Button from "./Button.astro";
-const { focus } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
 ---
 
 <section>
@@ -27,10 +29,10 @@ const { focus } = Astro.props;
       <p>AskExperts</p>
     </div>
     <ul>
-      <li class={focus}>About</li>
-      <li>Service Single</li>
-      <li>Team</li>
-      <li>Case Study Single</li>
+      <a href="/"><li class={currentPath === "" ? "active" : ""}>About</li></a>
+      <a href="/servicesingle"><li class={currentPath === "servicesingle" ? "active" : ""}>Service Single</li></a>
+      <a href="/team"><li class={currentPath === "team" ? "active" : ""}>Team</li></a>
+      <a href="/casestudysingle"><li class={currentPath === "casestudysingle" ? "active" : ""}>Case Study Single</li></a>
     </ul>
 
     <Button btnIcon="true" buttonStyle="white" text="+ (888) 452 1505" />
@@ -111,5 +113,9 @@ const { focus } = Astro.props;
   [data-icon="place_icon"] {
     inline-size: 0.73644rem;
     block-size: 0.95738rem;
+  }
+
+  a {
+    all: unset;
   }
 </style>
