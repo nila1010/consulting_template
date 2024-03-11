@@ -2,15 +2,16 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import HeadingStyled from "./HeadingStyled.astro";
 
-const { imagePath, altText, h2color, heading } = Astro.props;
+const { imagePath, altText, headingStyle, headingText } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 
 <section class="main-grid">
   <article class="spacing-article">
-    <h2 style=`--bg: ${h2color}` class="h2-button-style">{heading}</h2>
+    <HeadingStyled {headingStyle} {headingText} />
     <p class="sub-heading-style">Better Website Means A User Experience</p>
     <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</p>
   </article>

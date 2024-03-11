@@ -2,14 +2,15 @@
 import Button from "./Button.astro";
 import Card from "./Card.astro";
 import { cardContentGwoc } from "../data/aboutcardinfo.js";
+import HeadingStyled from "./HeadingStyled.astro";
 
-const { h2color, heading } = Astro.props;
+const { headingStyle, headingText } = Astro.props;
 ---
 
 <section class="main-grid">
   <article class="spacing-article">
     <div>
-      <h2 style=`--bg: ${h2color}` class="h2-button-style">{heading}</h2>
+      <HeadingStyled {headingStyle} {headingText} />
       <p class="sub-heading-style">Our core values & principles</p>
       <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
     </div>

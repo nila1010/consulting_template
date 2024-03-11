@@ -72,7 +72,7 @@ p {
 }
 
 /*Classes*/
-.h2-button-style {
+/* .h2-button-style {
   --bg: var(--secondary-color-2);
   font-family: var(--copy-font);
   inline-size: fit-content;
@@ -83,7 +83,7 @@ p {
   letter-spacing: var(--letter-spacing-step-1);
   text-transform: uppercase;
   background: var(--bg);
-}
+} */
 
 .sub-heading-style {
   inline-size: fit-content;
