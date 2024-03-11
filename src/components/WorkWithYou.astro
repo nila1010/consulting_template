@@ -1,0 +1,121 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import HeadingStyled from "./HeadingStyled.astro";
+
+const { imagePath, altText, headingStyle, headingText } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<section class="main-grid">
+  <article class="spacing-article">
+    <div>
+      <HeadingStyled {headingStyle} {headingText} />
+      <p class="sub-heading-style">What To Expect</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <ul>
+        <li><Icon name="list_icon" /><p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</p></li>
+        <li><Icon name="list_icon" /><p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</p></li>
+      </ul>
+    </div>
+    <figure>
+      <Image src={images[imagePath]()} alt={altText} />
+    </figure>
+  </article>
+</section>
+
+<style>
+  section {
+    --content: min(70rem, 100% - 2rem * 2);
+    container: main-content / inline-size;
+    dl {
+      place-content: center;
+    }
+  }
+
+  article {
+    display: grid;
+    grid: auto / 1fr 2fr;
+    gap: 4rem;
+  }
+  [data-icon] {
+    inline-size: 1.23044rem;
+    block-size: 1.23044rem;
+  }
+
+  figure {
+    order: -1;
+    position: relative;
+    align-self: end;
+    img {
+      border-radius: 1.3rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -10% -6%;
+      border-radius: 1.25rem;
+      inline-size: 40%;
+      block-size: 40%;
+      background: var(--secondary-color-3);
+      z-index: -1;
+    }
+  }
+
+  ul {
+    padding: 0;
+    display: grid;
+    gap: 1.1875rem;
+  }
+
+  li {
+    display: flex;
+    gap: 1rem;
+  }
+
+  dl {
+    margin-block-start: 5rem;
+    text-align: center;
+    display: flex;
+    gap: 3rem;
+
+    > * {
+      display: flex;
+      gap: 1.5rem;
+      flex-direction: column-reverse;
+      font-size: var(--font-size-step-2);
+      font-weight: var(--font-weight-step-0);
+      color: var(--secondary-color-1);
+
+      :last-child {
+        font-size: var(--font-size-step-5);
+        font-weight: var(--font-weight-step-2);
+      }
+    }
+  }
+
+  @container main-content (width < 700px) {
+    article {
+      grid: auto/1fr;
+    }
+    figure {
+      display: none;
+    }
+
+    dl {
+      margin-block-start: 2rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      > * {
+        font-size: var(--font-size-step-1);
+        gap: 0.5rem;
+        :last-child {
+          font-size: var(--font-size-step-3);
+        }
+      }
+    }
+  }
+</style>
