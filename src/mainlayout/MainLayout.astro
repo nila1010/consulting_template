@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import "../styles/reset.css";
 import Navigation from "../components/Navigation.astro";
-const { pageTitle } = Astro.props;
+const { pageTitle, focus } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,7 +16,7 @@ const { pageTitle } = Astro.props;
   </head>
 
   <body>
-    <header><Navigation /></header>
+    <header><Navigation focus={focus} /></header>
     <main class="flow-space"><slot /></main>
     <footer></footer>
   </body>

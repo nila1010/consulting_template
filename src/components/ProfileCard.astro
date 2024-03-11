@@ -13,7 +13,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
     <article>
       <div>
         <p>{card.work}</p>
-        <Image src={images[imagePath]()} alt={card.altText} />
+        <Image src={images[card.imagePath]()} alt={card.altText} />
       </div>
       <h3>{card.name}</h3>
       <p>{card.text}</p>
