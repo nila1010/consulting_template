@@ -14,7 +14,7 @@ if (!images[imagePath2]) throw new Error(`"${imagePath2}" does not exist in glob
   <article>
     <div class="spacing-article">
       <HeadingStyled {headingStyle} {headingText} />
-      <p class="sub-heading-style">Better Consult, Better Results</p>
+      <p class="sub-heading-style">Better Consult, <span>Better</span> Results</p>
       <p>Our software development agency has a growth up to 30% per each year. If you are result-oriented, not afraid to take initiative – drop us a note and join our team!</p>
       <Button btnIcon="true" buttonStyle="yellow" text="+800 1234 654 " />
     </div>
@@ -29,6 +29,10 @@ if (!images[imagePath2]) throw new Error(`"${imagePath2}" does not exist in glob
   section {
     --content: min(70rem, 100% - 2rem * 2);
     container: main-content / inline-size;
+
+    span {
+      color: #727272;
+    }
   }
 
   article {

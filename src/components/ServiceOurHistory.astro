@@ -1,0 +1,87 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import HeadingStyled from "./HeadingStyled.astro";
+
+const { imagePath, altText, headingStyle, headingText } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<section class="main-grid full-width-grid">
+  <article class="spacing-article">
+    <HeadingStyled {headingStyle} {headingText} />
+    <p class="sub-heading-style">Strategy for Every Stage in the Client's Journey</p>
+  </article>
+  <article>
+    <figure>
+      <Image src={images[imagePath]()} alt={altText} />
+    </figure>
+    <Icon name="play-button" />
+  </article>
+</section>
+
+<style>
+  section {
+    padding: 6cqi 0;
+    background: var(--secondary-color-1);
+    --content: min(70rem, 100% - 2rem * 2);
+    place-items: center;
+
+    > article:last-child {
+      margin-block-start: 2rem;
+    }
+  }
+  article {
+    text-align: center;
+    p {
+      color: white;
+    }
+    > * {
+      margin-inline: auto;
+    }
+    &:last-child {
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      > * {
+        grid-area: 1/1;
+      }
+    }
+  }
+
+  [data-icon] {
+    inline-size: 6.8125rem;
+    block-size: 6.8125rem;
+    z-index: 1;
+  }
+
+  figure {
+    position: relative;
+    img {
+      border-radius: 1.3rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -7% -6%;
+      border-radius: 1.25rem;
+      inline-size: 25%;
+      block-size: 50%;
+      background: var(--secondary-color-3);
+      z-index: -1;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 53% 83%;
+      border-radius: 1.25rem;
+      inline-size: 25%;
+      block-size: 56%;
+      background: var(--secondary-color-2);
+      z-index: -1;
+    }
+  }
+</style>

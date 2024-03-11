@@ -38,7 +38,11 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
   article {
     display: grid;
     grid: auto / 1fr 2fr;
-    gap: 4rem;
+    gap: 2rem;
+
+    > div {
+      justify-self: end;
+    }
   }
   [data-icon] {
     inline-size: 1.23044rem;
