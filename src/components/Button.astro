@@ -1,25 +1,69 @@
 ---
-const { text, bgColor, textColorHover, textColor } = Astro.props;
+import { Icon } from "astro-icon/components";
+const { text, buttonStyle, btnIcon } = Astro.props;
 ---
 
-<button style=`"--bg-color=${bgColor}";"--text-color=${textColor}";"--text-color-hover=${textColor}"`>{text}</button>
+<button data-style={buttonStyle}>
+  {
+    btnIcon === "true" && (
+      <figure>
+        <Icon name="phone_icon" />
+      </figure>
+    )
+  }{text}</button
+>
 
 <style>
   button {
-    --bg-color: black;
-    --text-color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  [data-style="black"] {
     padding: 0.9375rem 2.125rem;
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: var(--secondary-color-1);
+    color: #fff;
     font-size: var(--font-size-step-2);
     font-weight: var(--font-weight-step-1);
     line-height: var(--lineheight-step-3);
     border-radius: 3rem;
     min-inline-size: fit-content;
+
+    &:hover {
+      color: var(--secondary-color-2);
+    }
+  }
+  [data-style="yellow"] {
+    padding: 0.9375rem 2.125rem;
+    background: var(--secondary-color-2);
+    color: var(--secondary-color-1);
+    font-size: var(--font-size-step-2);
+    font-weight: var(--font-weight-step-1);
+    line-height: var(--lineheight-step-3);
+    border-radius: 3rem;
+    min-inline-size: fit-content;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+  [data-style="white"] {
+    padding: 0.9375rem 2.125rem;
+    background: #fff;
+    color: var(--secondary-color-1);
+    font-size: var(--font-size-step-1);
+    font-weight: var(--font-weight-step-1);
+    line-height: var(--lineheight-step-3);
+    border-radius: 3rem;
+    min-inline-size: fit-content;
+
+    &:hover {
+      color: var(--secondary-color-3);
+    }
   }
 
-  button:hover {
-    --text-color-hover: white;
-    color: var(--text-color-hover);
+  figure {
+    width: 1.35056rem;
+    height: 1.35056rem;
   }
 </style>
