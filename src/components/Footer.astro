@@ -1,0 +1,90 @@
+---
+import Button from "./Button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section>
+  <article class="flow-space">
+    <div>
+      <Icon name="ask_experts_icon" />
+      <p>AskExperts</p>
+    </div>
+    <p>Fb. /Ig. /Tw. /Be.</p>
+  </article>
+  <article>
+    <div>
+      <h4>Product</h4>
+      <ul>
+        <li>Service</li>
+        <li>FAQ</li>
+        <li>Single Service</li>
+        <li>Get Quote</li>
+        <li>Prices</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li>About</li>
+        <li>News</li>
+        <li>Contracts</li>
+        <li>Out Team</li>
+        <li>Our approach</li>
+      </ul>
+    </div>
+    <div class="flow-space">
+      <h4>Address</h4>
+      <p>1700 W Blancke St, kiyev port south USA, America</p>
+      <Button text="Book an Appoinment" buttonStyle="white" />
+    </div>
+  </article>
+</section>
+<p class="credits">©2022 Consultalk. All rights reserved | Terms of Service | Privacy Policy</p>
+
+<style>
+  section {
+    margin-block-start: 8cqi;
+    display: grid;
+    grid: auto / 1fr 2fr;
+    color: white;
+    border-bottom: 1px solid #707070;
+    padding-bottom: 3cqi;
+
+    article:first-child {
+      --space: 1.9rem;
+      border-right: 1px solid #707070;
+    }
+
+    article:first-child > div {
+      display: flex;
+      gap: 0.6rem;
+      font-size: var(--font-size-step-3);
+      [data-icon] {
+        width: 1.83063rem;
+        height: 1.77938rem;
+      }
+    }
+
+    article:last-child {
+      display: flex;
+      justify-content: space-around;
+      margin-inline-start: 4cqi;
+    }
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    color: white;
+  }
+  ul {
+    padding-left: 1.5rem;
+  }
+  li {
+    font-size: var(--font-size-step-1);
+  }
+  .credits {
+    color: white;
+    padding: 1rem 0;
+    margin-inline: auto;
+  }
+</style>
