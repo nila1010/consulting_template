@@ -1,8 +1,8 @@
 ---
-const{color, text} = Astro.props;
+const{headerStyle, text} = Astro.props;
 ---
 
-<h2 style=`--bg: ${color}`>{text}</h2>
+<h2 data-style={headerStyle}>{text}</h2>
 
 <style>{
   font-family: var(--copy-font);
