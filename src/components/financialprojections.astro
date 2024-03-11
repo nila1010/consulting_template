@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+import { contentFinancial } from "../data/financialdata.js";
+import Card from "./Card.astro";
+---
+
+<section class="main-grid">
+  <article class="spacing-article">
+    <div>
+      <Icon name="tv_icon" />
+      <p class="sub-heading-style">Financial Projections</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <figure>
+      <Icon name="arrow_left_icon" />
+      <Icon name="arrow_right_icon" />
+    </figure>
+  </article>
+
+  <Card cardHeight="small" bgColor="gray" cardContent={contentFinancial} />
+
+  <style>
+    section {
+      --content: min(70rem, 100% - 2rem * 2);
+      container: main-content / inline-size;
+
+      & article:first-child {
+        display: grid;
+        grid: auto / 2fr 1fr;
+        gap: 2rem;
+
+        div {
+          [data-icon] {
+            inline-size: 6.58675rem;
+            block-size: 4.44144rem;
+          }
+        }
+      }
+    }
+
+    figure {
+      place-self: end;
+      display: flex;
+      gap: 1.62rem;
+
+      [data-icon] {
+        inline-size: 4.34594rem;
+        block-size: 4.34594rem;
+      }
+    }
+
+    @container main-content (width < 700px) {
+      article {
+        grid: auto/1fr;
+      }
+      figure {
+        display: none;
+      }
+
+      dl {
+        margin-block-start: 2rem;
+        flex-wrap: wrap;
+        gap: 2rem;
+        > * {
+          font-size: var(--font-size-step-1);
+          gap: 0.5rem;
+          :last-child {
+            font-size: var(--font-size-step-3);
+          }
+        }
+      }
+    }
+  </style>
+</section>

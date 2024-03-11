@@ -135,7 +135,7 @@ p {
   grid-area: full;
 }
 
-.card-section {
+/* .card-section {
   display: flex;
   gap: 2rem;
   padding-inline: max(2rem, 50% - var(--content) / 2);
@@ -144,3 +144,4 @@ p {
     flex: 1 0 16rem;
   }
 }
+ */

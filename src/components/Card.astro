@@ -1,29 +1,50 @@
 ---
 import { Icon } from "astro-icon/components";
-const { iconName, heading, text, btn, cta, ctaText, cardContentGwoc } = Astro.props;
+const { bgColor, cta, cardContent, cardHeight } = Astro.props;
 ---
 
-{
-  cardContentGwoc.map((card) => (
-    <article class="flow-space">
-      <Icon name={card.iconPath} />
-      <h3>{card.heading}</h3>
-      <p>{card.text}</p>
-      {cta === "true" && (
-        <div>
-          <a href="">{card.ctaText}</a>
-          <Icon name="arrow" />
-        </div>
-      )}
-    </article>
-  ))
-}
+<section class="full-width-grid">
+  {
+    cardContent.map((card) => (
+      <article data-style={bgColor} data-cardheight={cardHeight} class="flow-space">
+        <Icon name={card.iconPath} />
+        <h3>{card.heading}</h3>
+        <p>{card.text}</p>
+        {cta === "true" && (
+          <div>
+            <a href="">{card.ctaText}</a>
+            <Icon name="arrow" />
+          </div>
+        )}
+      </article>
+    ))
+  }
+</section>
 
 <style>
+  section {
+    margin-block-start: 3rem;
+    display: flex;
+    gap: 2rem;
+    padding-inline: max(2rem, 50% - var(--content) / 2);
+    overflow: auto;
+    > * {
+      flex: 1 0 16rem;
+    }
+  }
+  [data-style="gray"] {
+    background-color: #ebebeb;
+  }
+  [data-style="white"] {
+    background-color: #fff;
+  }
+
+  [data-cardheight="small"] {
+    flex: 1 0 21rem;
+  }
+
   article {
     --space: 1.38rem;
-
-    background: #fff;
     border-radius: 1.25rem;
     padding: 2.25rem 1.44rem;
 
