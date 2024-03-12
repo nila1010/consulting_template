@@ -13,27 +13,27 @@ const { headingStyle, headingText } = Astro.props;
     <article>
       <details>
         Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.
-        <summary><p>What will happen when I’ve sent my application?</p><Icon name="plus_icon" /></summary>
+        <summary><p>What will happen when I’ve sent my application?</p><figure></figure></summary>
       </details>
       <details open>
         Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.
-        <summary><p>Can I get a free trial before I purchase?</p><Icon name="plus_icon" /></summary>
+        <summary><p>Can I get a free trial before I purchase?</p><figure></figure></summary>
       </details>
       <details>
         Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.
-        <summary><p>What should I include in my personal statement?</p><Icon name="plus_icon" /></summary>
+        <summary><p>What should I include in my personal statement?</p><figure></figure></summary>
       </details>
       <details>
         Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.
-        <summary><p>Will membership plans be charged automatically?</p><Icon name="plus_icon" /></summary>
+        <summary><p>Will membership plans be charged automatically?</p><figure></figure></summary>
       </details>
       <details>
         Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.
-        <summary><p>What will happen when I’ve sent my application?</p><Icon name="plus_icon" /></summary>
+        <summary><p>What will happen when I’ve sent my application?</p><figure></figure></summary>
       </details>
       <details>
         Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.
-        <summary><p>Can I get a free trial before I purchase?</p><Icon name="plus_icon" /></summary>
+        <summary><p>Can I get a free trial before I purchase?</p><figure></figure></summary>
       </details>
     </article>
   </div>
@@ -56,6 +56,13 @@ const { headingStyle, headingText } = Astro.props;
       margin-block-start: 2.5rem;
       display: grid;
       gap: 1.8rem;
+      figure {
+        background-image: url(/src/icons/minus_icon.svg);
+        background-repeat: no-repeat;
+        inline-size: 21px;
+        block-size: 3px;
+        align-self: center;
+      }
     }
 
     details {
@@ -63,7 +70,12 @@ const { headingStyle, headingText } = Astro.props;
       padding-bottom: 1.69rem;
 
       &:not([open]) {
-        background: red;
+        figure {
+          background-image: url(/src/icons/plus_icon.svg);
+          background-repeat: no-repeat;
+          inline-size: 21px;
+          block-size: 20px;
+        }
       }
 
       summary {
