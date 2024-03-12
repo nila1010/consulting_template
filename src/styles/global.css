@@ -59,6 +59,7 @@ body {
   font-size: var(--font-size-step-1);
   line-height: var(--lineheight-step-2);
   color: var(--copy-primary-color);
+  font-weight: 400;
 }
 
 h1,

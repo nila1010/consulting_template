@@ -1,0 +1,77 @@
+---
+import { Icon } from "astro-icon/components";
+import HeadingStyled from "./HeadingStyled.astro";
+const { headingStyle, headingText } = Astro.props;
+---
+
+<section class="main-grid">
+  <div>
+    <article>
+      <HeadingStyled {headingStyle} {headingText} />
+      <p class="sub-heading-style">Customer Questions</p>
+    </article>
+    <article>
+      <details>
+        <summary><p>What will happen when I’ve sent my application?</p><Icon name="plus_icon" /></summary>
+      </details>
+      <details>
+        Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.
+        <summary><p>Can I get a free trial before I purchase?</p><Icon name="plus_icon" /></summary>
+      </details>
+      <details>
+        <summary><p>What should I include in my personal statement?</p><Icon name="plus_icon" /></summary>
+      </details>
+      <details>
+        <summary><p>Will membership plans be charged automatically?</p><Icon name="plus_icon" /></summary>
+      </details>
+      <details>
+        <summary><p>What will happen when I’ve sent my application?</p><Icon name="plus_icon" /></summary>
+      </details>
+      <details>
+        <summary><p>Can I get a free trial before I purchase?</p><Icon name="plus_icon" /></summary>
+      </details>
+    </article>
+  </div>
+</section>
+<style>
+  section {
+    --content: min(70rem, 100% - 2rem * 2);
+    > div {
+      background: var(--site-bacgground-secondary-2-color);
+      padding: 9cqi 14cqi;
+      border-radius: 1.875rem;
+    }
+
+    article:first-child {
+      display: grid;
+      place-items: center;
+      gap: 1.3rem;
+    }
+    article:last-child {
+      margin-block-start: 2.5rem;
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    details {
+      border-bottom: 1px solid #dadada;
+      padding-bottom: 1.69rem;
+
+      summary {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+
+        p {
+          font-size: var(--font-size-step-2);
+          font-weight: var(--font-weight-step-0);
+          color: var(--secondary-color-1);
+        }
+      }
+    }
+  }
+  [data-icon] {
+    inline-size: 1.07388rem;
+    block-size: 1.07388rem;
+  }
+</style>
