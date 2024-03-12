@@ -24,14 +24,19 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       grid-area: 1 / 1;
     }
     container: header / inline-size;
+
+    img {
+      align-self: stretch;
+      object-fit: cover;
+    }
   }
 
   article {
     margin-inline-start: 19cqi;
     margin-inline-end: 30cqi;
     margin-block-start: 10cqi;
+    margin-block-end: 5cqi;
     border-radius: 1.8125rem;
-    /* padding: 3rem 3.75rem 3.625rem 3.75rem; */
     padding: 3cqi 3.75cqi 3.625cqi 3.75cqi;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5.5px);
