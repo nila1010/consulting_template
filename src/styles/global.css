@@ -30,15 +30,15 @@
   --font-size-step-5: clamp(2.4414rem, 2.131rem + 1.3243cqi, 3.1573rem);
 
   /*Spacing*/
-  --space-3xs: clamp(0.25rem, 0.25rem + 0vi, 0.25rem);
-  --space-2xs: clamp(0.5rem, 0.5rem + 0vi, 0.5rem);
-  --space-xs: clamp(0.75rem, 0.75rem + 0vi, 0.75rem);
-  --space-s: clamp(1rem, 1rem + 0vi, 1rem);
-  --space-m: clamp(1.5rem, 1.5rem + 0vi, 1.5rem);
-  --space-l: clamp(2rem, 2rem + 0vi, 2rem);
-  --space-xl: clamp(3rem, 3rem + 0vi, 3rem);
-  --space-2xl: clamp(4rem, 4rem + 0vi, 4rem);
-  --space-3xl: clamp(6rem, 6rem + 0vi, 6rem);
+  --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vi, 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.4783rem + 0.1087vi, 0.5625rem);
+  --space-xs: clamp(0.75rem, 0.7065rem + 0.2174vi, 0.875rem);
+  --space-s: clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem);
+  --space-m: clamp(1.5rem, 1.4348rem + 0.3261vi, 1.6875rem);
+  --space-l: clamp(2rem, 1.913rem + 0.4348vi, 2.25rem);
+  --space-xl: clamp(3rem, 2.8696rem + 0.6522vi, 3.375rem);
+  --space-2xl: clamp(4rem, 3.8261rem + 0.8696vi, 4.5rem);
+  --space-3xl: clamp(6rem, 5.7391rem + 1.3043vi, 6.75rem);
 
   /*Font Weight*/
   --font-weight-step-0: 500;
@@ -121,3 +121,14 @@ p {
 .full-width-grid {
   grid-area: full;
 }
+
+/* article {
+  section:has(> &) {
+    container-type: inline-size;
+  }
+  @container (width < 700px) {
+    grid: auto/1fr;
+  }
+} */
+/* figure {
+  display: none; */

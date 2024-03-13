@@ -6,7 +6,7 @@ const { bgColor, cta, cardContent, cardHeight } = Astro.props;
 <section class="full-width-grid">
   {
     cardContent.map((card) => (
-      <article data-style={bgColor} data-cardheight={cardHeight} class="flow-space">
+      <article data-style={bgColor} data-cardheight={cardHeight} class="flow-space card">
         <Icon name={card.iconPath} />
         <h3>{card.heading}</h3>
         <p>{card.text}</p>
