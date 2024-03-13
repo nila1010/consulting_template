@@ -3,45 +3,49 @@ import Button from "./Button.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<section>
-  <article class="flow-space">
-    <div>
-      <Icon name="ask_experts_icon" />
-      <p>AskExperts</p>
-    </div>
-    <p>Fb. /Ig. /Tw. /Be.</p>
-  </article>
-  <article>
-    <div>
-      <h4>Product</h4>
-      <ul>
-        <li>Service</li>
-        <li>FAQ</li>
-        <li>Single Service</li>
-        <li>Get Quote</li>
-        <li>Prices</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <ul>
-        <li>About</li>
-        <li>News</li>
-        <li>Contracts</li>
-        <li>Out Team</li>
-        <li>Our approach</li>
-      </ul>
-    </div>
-    <div class="flow-space">
-      <h4>Address</h4>
-      <p>1700 W Blancke St, kiyev port south USA, America</p>
-      <Button text="Book an Appoinment" buttonStyle="white" />
-    </div>
-  </article>
-</section>
-<p class="credits">©2022 Consultalk. All rights reserved | Terms of Service | Privacy Policy</p>
-
+<footer>
+  <section>
+    <article class="flow-space">
+      <div>
+        <Icon name="ask_experts_icon" />
+        <p>AskExperts</p>
+      </div>
+      <p>Fb. /Ig. /Tw. /Be.</p>
+    </article>
+    <article>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li>Service</li>
+          <li>FAQ</li>
+          <li>Single Service</li>
+          <li>Get Quote</li>
+          <li>Prices</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li>About</li>
+          <li>News</li>
+          <li>Contracts</li>
+          <li>Out Team</li>
+          <li>Our approach</li>
+        </ul>
+      </div>
+      <div class="flow-space">
+        <h4>Address</h4>
+        <p>1700 W Blancke St, kiyev port south USA, America</p>
+        <Button text="Book an Appoinment" buttonStyle="white" btnSize="small" />
+      </div>
+    </article>
+  </section>
+  <p class="credits">©2022 Consultalk. All rights reserved | Terms of Service | Privacy Policy</p>
+</footer>
 <style>
+  footer {
+    container: footer / inline-size;
+  }
   section {
     margin-block-start: 8cqi;
     display: grid;
@@ -69,6 +73,8 @@ import { Icon } from "astro-icon/components";
       display: flex;
       justify-content: space-around;
       margin-inline-start: 4cqi;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
   }
 
@@ -82,9 +88,40 @@ import { Icon } from "astro-icon/components";
   li {
     font-size: var(--font-size-step-1);
   }
+
+  p {
+    max-width: 25ch;
+  }
   .credits {
     color: white;
     padding: 1rem 0;
     margin-inline: auto;
+    max-width: 65ch;
+  }
+
+  @container footer (width < 870px) {
+    section {
+      grid: auto/1fr;
+      place-items: center;
+      margin-block-start: 2rem;
+    }
+
+    section > article:first-child {
+      border-right: none;
+      div {
+        align-items: center;
+        p {
+          margin-block-start: 0;
+        }
+      }
+      p {
+        text-align: center;
+        margin-block-start: 1rem;
+      }
+    }
+    section > article:last-child {
+      margin-block-start: 1rem;
+      margin-inline-start: 0;
+    }
   }
 </style>

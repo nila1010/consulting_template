@@ -34,8 +34,10 @@ const currentPath = pathname.slice(1);
       <a href="/team"><li class={currentPath === "team" ? "active" : ""}>Team</li></a>
       <a href="/casestudysingle"><li class={currentPath === "casestudysingle" ? "active" : ""}>Case Study Single</li></a>
     </ul>
-
-    <Button btnIcon="true" buttonStyle="white" text="+ (888) 452 1505" />
+    <Button btnIcon="true" buttonStyle="white" btnSize="small" text="+ (888) 452 1505" />
+    <div class="burger">
+      <span></span><span></span><span></span><span></span>
+    </div>
   </article>
 </section>
 
@@ -43,6 +45,7 @@ const currentPath = pathname.slice(1);
   section {
     display: grid;
     background-color: var(--secondary-color-1);
+    container: nav / inline-size;
 
     article:first-child {
       padding: 0.5rem;
@@ -117,5 +120,66 @@ const currentPath = pathname.slice(1);
 
   a {
     all: unset;
+  }
+
+  @container nav (width < 970px) {
+    article:last-child {
+      p,
+      button {
+        display: none;
+      }
+    }
+  }
+  @container nav (width < 600px) {
+    section > article:first-child {
+      display: none;
+    }
+    article:last-child {
+      & > ul {
+        display: none;
+      }
+      p {
+        display: block;
+      }
+      .burger {
+        display: block;
+        width: 50px;
+        height: 60px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+        z-index: 11;
+        margin: 10px 20px;
+      }
+
+      .burger span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background: var(--secondary-color-2);
+        transition: 1s ease-in-out;
+      }
+      span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background: var(--secondary-color-2);
+        transition: 1s ease-in-out;
+      }
+
+      .burger span:nth-child(1) {
+        top: 10px;
+      }
+
+      .burger span:nth-child(2),
+      .burger span:nth-child(3) {
+        top: 25px;
+      }
+
+      .burger span:nth-child(4) {
+        top: 40px;
+      }
+    }
   }
 </style>
