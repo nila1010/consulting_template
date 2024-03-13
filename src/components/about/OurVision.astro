@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import HeadingStyled from "./HeadingStyled.astro";
+import HeadingStyled from "../HeadingStyled.astro";
 
 const { imagePath, altText, headingStyle, headingText } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
@@ -13,8 +13,8 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
   <article class="spacing-article">
     <div>
       <HeadingStyled {headingStyle} {headingText} />
-      <p class="sub-heading-style">What To Expect</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="sub-heading-style">Turn your ideas into reality.</p>
+      <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
       <ul>
         <li><Icon name="list_icon" /><p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</p></li>
         <li><Icon name="list_icon" /><p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</p></li>
@@ -24,11 +24,28 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       <Image src={images[imagePath]()} alt={altText} />
     </figure>
   </article>
+  <dl>
+    <div>
+      <dt>Successful Work</dt>
+      <dd>1128+</dd>
+    </div>
+    <div>
+      <dt>Team member</dt>
+      <dd>908+</dd>
+    </div>
+    <div>
+      <dt>Happy Customers</dt>
+      <dd>258+</dd>
+    </div>
+    <div>
+      <dt>Creative Idea</dt>
+      <dd>564+</dd>
+    </div>
+  </dl>
 </section>
 
 <style>
   section {
-    --content: min(70rem, 100% - 2rem * 2);
     container: main-content / inline-size;
     dl {
       place-content: center;
@@ -37,12 +54,8 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 
   article {
     display: grid;
-    grid: auto / 1fr 2fr;
+    grid: auto / 2fr 1fr;
     gap: 2rem;
-
-    > div {
-      justify-self: end;
-    }
   }
   [data-icon] {
     inline-size: 1.23044rem;
@@ -50,7 +63,6 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
   }
 
   figure {
-    order: -1;
     position: relative;
     align-self: end;
     img {
@@ -60,7 +72,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
     &::before {
       content: "";
       position: absolute;
-      inset: -10% -6%;
+      inset: -9% 70%;
       border-radius: 1.25rem;
       inline-size: 40%;
       block-size: 40%;

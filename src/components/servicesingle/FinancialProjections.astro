@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import { contentFinancial } from "../data/financialdata.js";
-import Card from "./Card.astro";
+import { contentFinancial } from "../../data/financialdata.js";
+import Card from "../Card.astro";
 ---
 
 <section class="main-grid">
@@ -22,7 +22,6 @@ import Card from "./Card.astro";
   <style>
     section {
       background: var(--site-bacgground-secondary-2-color);
-      --content: min(70rem, 100% - 2rem * 2);
       container: main-content / inline-size;
 
       & article:first-child {
@@ -56,19 +55,6 @@ import Card from "./Card.astro";
       }
       figure {
         display: none;
-      }
-
-      dl {
-        margin-block-start: 2rem;
-        flex-wrap: wrap;
-        gap: 2rem;
-        > * {
-          font-size: var(--font-size-step-1);
-          gap: 0.5rem;
-          :last-child {
-            font-size: var(--font-size-step-3);
-          }
-        }
       }
     }
   </style>

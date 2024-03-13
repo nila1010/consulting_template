@@ -1,7 +1,7 @@
 ---
-import { profileContent } from "../data/profilecardinfo.js";
-import ProfileCard from "./ProfileCard.astro";
-import HeadingStyled from "./HeadingStyled.astro";
+import { profileContent } from "../../data/profilecardinfo.js";
+import ProfileCard from "../ProfileCard.astro";
+import HeadingStyled from "../HeadingStyled.astro";
 const { headingStyle, headingText } = Astro.props;
 ---
 
@@ -17,7 +17,6 @@ const { headingStyle, headingText } = Astro.props;
 <style>
   section {
     padding: 6.25rem 0;
-    --content: min(70rem, 100% - 2rem * 2);
     background: var(--site-bagground-secondary-color);
 
     > article:last-child {

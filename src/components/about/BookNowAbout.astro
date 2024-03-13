@@ -1,8 +1,8 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import HeadingStyled from "./HeadingStyled.astro";
-import Button from "./Button.astro";
+import HeadingStyled from "../HeadingStyled.astro";
+import Button from "../Button.astro";
 
 const { imagePath, imagePath2, altText, headingText, headingStyle, buttonStyle } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
@@ -27,9 +27,7 @@ if (!images[imagePath2]) throw new Error(`"${imagePath2}" does not exist in glob
 
 <style>
   section {
-    --content: min(70rem, 100% - 2rem * 2);
     container: main-content / inline-size;
-
     span {
       color: #727272;
     }

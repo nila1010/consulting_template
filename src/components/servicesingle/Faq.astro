@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import HeadingStyled from "./HeadingStyled.astro";
+import HeadingStyled from "../HeadingStyled.astro";
 const { headingStyle, headingText } = Astro.props;
 ---
 
@@ -40,7 +40,6 @@ const { headingStyle, headingText } = Astro.props;
 </section>
 <style>
   section {
-    --content: min(70rem, 100% - 2rem * 2);
     > div {
       background: var(--site-bacgground-secondary-2-color);
       padding: 9cqi 14cqi;

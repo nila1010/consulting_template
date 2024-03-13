@@ -1,4 +1,7 @@
 :root {
+  /*Layout Sizes*/
+  --content: min(70rem, 100% - 2rem * 2);
+
   /*Colors*/
   --site-bagground-color: #fff;
   --site-bagground-secondary-color: #eaeaea;
@@ -25,12 +28,6 @@
   --font-size-step-3: clamp(1.5625rem, 1.4696rem + 0.3966cqi, 1.7769rem);
   --font-size-step-4: clamp(1.9531rem, 1.773rem + 0.7685cqi, 2.3686rem);
   --font-size-step-5: clamp(2.4414rem, 2.131rem + 1.3243cqi, 3.1573rem);
-
-  /*  --font-size-step-1: 1rem;
-  --font-size-step-2: 1.25rem;
-  --font-size-step-3: 1.875rem;
-  --font-size-step-4: 2.8125rem;
-  --font-size-step-5: 3.125rem; */
 
   /*Spacing*/
   --space-3xs: clamp(0.25rem, 0.25rem + 0vi, 0.25rem);
@@ -74,18 +71,6 @@ p {
 }
 
 /*Classes*/
-/* .h2-button-style {
-  --bg: var(--secondary-color-2);
-  font-family: var(--copy-font);
-  inline-size: fit-content;
-  border-radius: 1.25rem;
-  padding: 0rem 0.9375rem;
-  line-height: var(--lineheight-step-2);
-  font-size: var(--font-size-step-1);
-  letter-spacing: var(--letter-spacing-step-1);
-  text-transform: uppercase;
-  background: var(--bg);
-} */
 
 .sub-heading-style {
   inline-size: fit-content;
