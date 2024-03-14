@@ -49,6 +49,14 @@ const { text, buttonStyle, btnIcon, btnSize } = Astro.props;
       color: var(--secondary-color-3);
     }
   }
+  [data-style="green"] {
+    background: var(--secondary-color-3);
+    color: #fff;
+
+    &:hover {
+      color: var(--secondary-color-2);
+    }
+  }
   [data-icon] {
     inline-size: 1.35056rem;
     block-size: 1.35056rem;

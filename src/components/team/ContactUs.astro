@@ -1,0 +1,108 @@
+---
+import Button from "../Button.astro";
+import HeaderStyled from "../HeadingStyled.astro";
+
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const { imagePath, altText } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<section class="main-grid">
+  <article>
+    <div>
+      <HeaderStyled headingStyle="gray" headingText="Contact" />
+      <h2>Ready To Talk?</h2>
+      <p>Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Massa placerat duis ultricies lacus sed turpis. Pellentesque pellentesque habitant morbi tristique.</p>
+      <div>
+        <label>
+          <input type="text" id="inputnewsletter" placeholder="Your mail adress" />
+        </label>
+        <Button buttonStyle="green" text="Send Message" />
+      </div>
+    </div>
+    <figure>
+      <Image src={images[imagePath]()} alt={altText} />
+    </figure>
+  </article>
+</section>
+
+<style>
+  section {
+    container: main / inline-size;
+  }
+  article {
+    background: var(--secondary-color-1);
+    /* padding: 5cqi; */
+    border-radius: 1.3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+
+    > div {
+      place-self: center;
+      margin-inline-start: 6cqi;
+      margin-block: 3cqi;
+    }
+
+    > div > div:has(label) {
+      display: flex;
+      flex-wrap: wrap;
+      place-items: center;
+      gap: 1rem;
+    }
+  }
+  figure {
+    place-self: end;
+    position: relative;
+    z-index: 2;
+  }
+
+  figure::before {
+    position: absolute;
+    content: url("/src/icons/pattern.svg");
+    inline-size: 20cqi;
+    block-size: 15cqi;
+    inset: 31% -5%;
+    transform: rotate(-107.68deg);
+    z-index: -1;
+  }
+
+  h2 {
+    font-size: var(--font-size-step-4);
+    font-weight: var(--font-weight-step-2);
+    color: #fff;
+    margin-block-start: var(--space-xs);
+    margin-block-end: var(--space-3xs);
+  }
+
+  p {
+    color: #fff;
+    margin-block-end: var(--space-xs);
+  }
+
+  input {
+    padding: 0.9375rem 2.125rem;
+    border-radius: 3rem;
+    background: #fff;
+  }
+
+  input:placeholder {
+    content: "your mail address";
+  }
+
+  @container main (width < 700px) {
+    article {
+      grid-template-columns: 1fr;
+
+      > div {
+        margin: 5cqi;
+      }
+    }
+    figure {
+      display: none;
+    }
+  }
+</style>

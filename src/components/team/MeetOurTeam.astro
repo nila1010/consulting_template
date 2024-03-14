@@ -1,0 +1,36 @@
+---
+import Button from "../Button.astro";
+import ProfileCard from "../ProfileCard.astro";
+import { profileContent } from "../../data/profilecardinfo.js";
+import { profileContent2 } from "../../data/profilecardinfo2.js";
+---
+
+<section class="main-grid">
+  <article class="spacing-article">
+    <div>
+      <p class="sub-heading-style">Meet Our Great Team</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
+    </div>
+    <Button buttonStyle="black" text="Join our team" />
+  </article>
+  <div class="full-width-grid">
+    <ProfileCard profileContent={profileContent} />
+    <ProfileCard profileContent={profileContent2} />
+  </div>
+</section>
+
+<style>
+  section {
+    margin-block-start: 3rem;
+
+    article:first-child {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      button {
+        place-self: end;
+      }
+    }
+  }
+</style>

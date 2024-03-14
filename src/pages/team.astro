@@ -1,5 +1,12 @@
 ---
 import MainLayout from "../mainlayout/MainLayout.astro";
+import MeetOurTeam from "../components/team/MeetOurTeam.astro";
+import InfoBoxHeading from "../components/InfoBoxHeading.astro";
+import ContactUs from "../components/team/ContactUs.astro";
 ---
 
-<MainLayout />
+<MainLayout>
+  <InfoBoxHeading headingStyle="yellow" headingText="Team" description="The Consultors" imagePath="/src/assets/header_img_team.png" altText="header image" />
+  <MeetOurTeam />
+  <ContactUs imagePath="/src/assets/ready_to_talk_img.png" altText="Image with a lot of hands together" />
+</MainLayout>
