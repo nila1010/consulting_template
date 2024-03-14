@@ -40,6 +40,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
+    overflow: hidden;
 
     > div {
       place-self: center;
