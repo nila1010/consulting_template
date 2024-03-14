@@ -1,15 +1,68 @@
 ---
-
+import Button from "../Button.astro";
 ---
 
-<section>
+<section class="main-grid">
   <article>
     <div>
       <h2>Subscripe Our Newsletter</h2>
       <p>Build stronger Customer Relationships with Consultalk</p>
     </div>
     <div>
-      <label for=""></label>
+      <label>
+        <input type="text" id="inputnewsletter" placeholder="Your mail adress" />
+      </label>
+      <Button buttonStyle="yellow" text="Subscribe" />
     </div>
   </article>
 </section>
+
+<style>
+  section {
+    container: bar / inline-size;
+  }
+  article {
+    background: var(--secondary-color-1);
+    padding: 5cqi;
+    border-radius: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  h2 {
+    font-size: var(--font-size-step-4);
+    font-weight: var(--font-weight-step-2);
+    color: #fff;
+    margin-block-end: var(--space-xs);
+  }
+
+  p {
+    color: #fff;
+  }
+
+  div:has(label) {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    gap: 1.5rem;
+  }
+
+  input {
+    padding: 0.9375rem 2.125rem;
+    border-radius: 3rem;
+    background: #fff;
+  }
+
+  input:placeholder {
+    content: "your mail address";
+  }
+
+  @container bar (width < 1000px) {
+    article {
+      justify-content: center;
+    }
+    div:has(label) {
+      margin-block-start: 1rem;
+    }
+  }
+</style>

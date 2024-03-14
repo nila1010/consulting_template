@@ -18,44 +18,32 @@ const { text, buttonStyle, btnIcon, btnSize } = Astro.props;
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-  [data-style="black"] {
-    padding: 0.9375rem 2.125rem;
-    background: var(--secondary-color-1);
-    color: #fff;
-    font-size: var(--font-size-step-2);
-    font-weight: var(--font-weight-step-1);
-    line-height: var(--lineheight-step-3);
     border-radius: 3rem;
     min-inline-size: fit-content;
+    padding: 0.9375rem 2.125rem;
+    font-weight: var(--font-weight-step-1);
+    line-height: var(--lineheight-step-3);
+    font-size: var(--font-size-step-2);
+  }
+  [data-style="black"] {
+    background: var(--secondary-color-1);
+    color: #fff;
 
     &:hover {
       color: var(--secondary-color-2);
     }
   }
   [data-style="yellow"] {
-    padding: 0.9375rem 2.125rem;
     background: var(--secondary-color-2);
     color: var(--secondary-color-1);
-    font-size: var(--font-size-step-2);
-    font-weight: var(--font-weight-step-1);
-    line-height: var(--lineheight-step-3);
-    border-radius: 3rem;
-    min-inline-size: fit-content;
 
     &:hover {
       color: #fff;
     }
   }
   [data-style="white"] {
-    padding: 0.9375rem 2.125rem;
     background: #fff;
     color: var(--secondary-color-1);
-    font-size: var(--font-size-step-1);
-    font-weight: var(--font-weight-step-1);
-    line-height: var(--lineheight-step-3);
-    border-radius: 3rem;
-    min-inline-size: fit-content;
 
     &:hover {
       color: var(--secondary-color-3);
@@ -66,6 +54,7 @@ const { text, buttonStyle, btnIcon, btnSize } = Astro.props;
     block-size: 1.35056rem;
   }
   [data-size="small"] {
+    font-size: var(--font-size-step-1);
     padding: 0.5rem 1.125rem;
     gap: 0.5rem;
     [data-icon] {
