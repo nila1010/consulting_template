@@ -73,6 +73,16 @@ import Button from "../Button.astro";
     rotate: 60deg;
   }
 
+  div:has(label):before {
+    position: absolute;
+    content: url("/src/icons/pattern.svg");
+    inline-size: 17cqi;
+    block-size: 15cqi;
+    inset: -195% 89%;
+    transform: rotate(43.687deg);
+    z-index: -1;
+  }
+
   @container bar (width < 1000px) {
     article {
       justify-content: center;

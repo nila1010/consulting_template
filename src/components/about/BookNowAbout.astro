@@ -60,7 +60,7 @@ if (!images[imagePath2]) throw new Error(`"${imagePath2}" does not exist in glob
       border-top-right-radius: 1.3rem;
     }
 
-    &::before {
+    &::after {
       content: "";
       position: absolute;
       inset: -4% -5%;
@@ -70,15 +70,12 @@ if (!images[imagePath2]) throw new Error(`"${imagePath2}" does not exist in glob
       background: var(--secondary-color-3);
       z-index: -1;
     }
-    &::after {
-      content: "";
+    &::before {
       position: absolute;
-      inset: -30.7% 68%;
-      border-bottom-left-radius: 1.25rem;
-      border-bottom-right-radius: 1.25rem;
-      inline-size: 40%;
-      block-size: 87%;
-      background: var(--secondary-color-2);
+      content: url("/src/icons/pattern.svg");
+      inline-size: 26cqi;
+      block-size: 15cqi;
+      inset: -11% -7%;
       z-index: -1;
     }
   }

@@ -53,7 +53,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       border-radius: 1.3rem;
     }
 
-    &::before {
+    &::after {
       content: "";
       position: absolute;
       inset: -10% -6%;
@@ -61,6 +61,14 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       inline-size: 40%;
       block-size: 40%;
       background: var(--secondary-color-3);
+      z-index: -1;
+    }
+    &::before {
+      position: absolute;
+      content: url("/src/icons/pattern.svg");
+      inline-size: 16cqi;
+      block-size: 15cqi;
+      inset: -27% -13%;
       z-index: -1;
     }
   }

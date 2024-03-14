@@ -89,6 +89,14 @@ if (!images[imagePath3]) throw new Error(`"${imagePath3}" does not exist in glob
       background: var(--secondary-color-3);
       z-index: -1;
     }
+    &::after {
+      position: absolute;
+      content: url("/src/icons/pattern.svg");
+      inline-size: 17cqi;
+      block-size: 15cqi;
+      inset: -9% 71%;
+      z-index: -1;
+    }
   }
 
   .contact-wrapper {
