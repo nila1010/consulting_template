@@ -28,6 +28,8 @@ import Button from "../Button.astro";
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    z-index: 2;
+    overflow: hidden;
   }
   h2 {
     font-size: var(--font-size-step-4);
@@ -41,6 +43,7 @@ import Button from "../Button.astro";
   }
 
   div:has(label) {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     place-content: center;
@@ -55,6 +58,18 @@ import Button from "../Button.astro";
 
   input:placeholder {
     content: "your mail address";
+  }
+
+  div:has(label):after {
+    content: "";
+    position: absolute;
+    inset: 244% 73%;
+    border-radius: 0.8rem;
+    inline-size: 80%;
+    block-size: 162%;
+    background: var(--secondary-color-3);
+    z-index: -1;
+    rotate: 60deg;
   }
 
   @container bar (width < 1000px) {
