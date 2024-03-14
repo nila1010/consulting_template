@@ -10,10 +10,12 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 
 <section>
   <Image src={images[imagePath]()} alt={altText} />
-  <article>
-    <HeadingStyled {headingStyle} {headingText} />
-    <p class="sub-heading-style">{description}</p>
-  </article>
+  <div class="main-grid">
+    <article>
+      <HeadingStyled {headingStyle} {headingText} />
+      <p class="sub-heading-style">{description}</p>
+    </article>
+  </div>
 </section>
 
 <style>
@@ -31,12 +33,14 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
     }
   }
 
+  div {
+    align-self: center;
+  }
+
   article {
     inline-size: fit-content;
-    margin-inline-start: 19cqi;
-    margin-inline-end: 30cqi;
-    margin-block-start: 10cqi;
-    margin-block-end: 5cqi;
+    align-self: center;
+
     border-radius: 1.8125rem;
     padding: 3cqi 3.75cqi 3.625cqi 3.75cqi;
     background: rgba(255, 255, 255, 0.85);
@@ -55,7 +59,6 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
   @container header (width < 650px) {
     article {
       max-inline-size: 20rem;
-      place-self: center;
       margin-inline: 1cqi;
     }
   }
