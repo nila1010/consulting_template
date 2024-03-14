@@ -1,0 +1,44 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+
+const { imagePath, imagePath2, imagePath3, altText, headingStyle, headingText } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[imagePath2]) throw new Error(`"${imagePath2}" does not exist in glob2: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[imagePath3]) throw new Error(`"${imagePath3}" does not exist in glob3: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<section class="main-grid flow-space">
+  <h2 class="sub-heading-style">More case studies</h2>
+  <article>
+    <Image src={images[imagePath]()} alt={altText} />
+    <Image src={images[imagePath2]()} alt={altText} />
+    <Image src={images[imagePath3]()} alt={altText} />
+  </article>
+  <Button buttonStyle="black" btnSize="small" text="Browse all case studies" />
+</section>
+
+<style>
+  section {
+    place-items: center;
+
+    article {
+      --space: var(--space-m);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 2cqi 1cqi;
+      background: #d9d9d9;
+
+      img {
+        border-radius: 1.3rem;
+      }
+    }
+    button {
+      --space: var(--space-l);
+    }
+  }
+</style>
