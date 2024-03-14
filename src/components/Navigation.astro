@@ -3,7 +3,8 @@ import { Icon } from "astro-icon/components";
 import Button from "./Button.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1);
+const last = pathname.lastIndexOf("/");
+const currentPath = pathname.slice(1, last);
 ---
 
 <section>
