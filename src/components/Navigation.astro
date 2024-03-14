@@ -49,9 +49,10 @@ const currentPath = pathname.slice(1, last);
     container: nav / inline-size;
 
     article:first-child {
-      padding: 0.5rem;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
+      padding-inline: max(2rem, 50% - var(--content) / 2);
+      padding-block: 0.5rem;
 
       div {
         display: flex;
@@ -73,14 +74,17 @@ const currentPath = pathname.slice(1, last);
     }
 
     article:last-child {
-      padding: 1.5rem 2rem;
+      padding-block: 1.5rem;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-
+      padding-inline: max(2rem, 50% - var(--content) / 2);
       background: rgb(62 61 61 / 91%);
       color: #fff;
 
+      button {
+        justify-self: end;
+      }
       div {
         display: flex;
         gap: 0.3rem;
