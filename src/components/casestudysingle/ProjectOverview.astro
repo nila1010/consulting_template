@@ -66,16 +66,14 @@ if (!images[imagePath2]) throw new Error(`"${imagePath}" does not exist in glob:
       border-radius: 1.3rem;
     }
 
-    article:has(button) h3,
-    p {
-    }
-
     > article:nth-child(2) {
+      container: banner / inline-size;
       color: #fff;
       margin-block-start: -5%;
       display: flex;
       justify-content: space-between;
       justify-items: center;
+      flex-wrap: wrap;
       grid-column: featured;
       background: var(--secondary-color-1);
       border-radius: 1.3rem;
@@ -123,5 +121,11 @@ if (!images[imagePath2]) throw new Error(`"${imagePath}" does not exist in glob:
 
   .full-width-grid {
     grid-area: full;
+  }
+
+  @container banner (width < 600px) {
+    div {
+      background: red;
+    }
   }
 </style>
