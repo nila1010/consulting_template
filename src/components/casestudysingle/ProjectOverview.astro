@@ -54,6 +54,7 @@ if (!images[imagePath2]) throw new Error(`"${imagePath}" does not exist in glob:
   section {
   }
   .project-overview-grid {
+    container: banner / inline-size;
     display: grid;
     grid-template-columns:
       [full-start] 1fr
@@ -67,7 +68,6 @@ if (!images[imagePath2]) throw new Error(`"${imagePath}" does not exist in glob:
     }
 
     > article:nth-child(2) {
-      container: banner / inline-size;
       color: #fff;
       margin-block-start: -5%;
       display: flex;
@@ -124,8 +124,11 @@ if (!images[imagePath2]) throw new Error(`"${imagePath}" does not exist in glob:
   }
 
   @container banner (width < 600px) {
-    div {
-      background: red;
+    article:nth-child(2) {
+      button {
+        margin-block-start: 1rem;
+        margin-inline: auto;
+      }
     }
   }
 </style>
