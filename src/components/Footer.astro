@@ -124,4 +124,13 @@ import { Icon } from "astro-icon/components";
       margin-inline-start: 0;
     }
   }
+
+  @container footer (width < 600px) {
+    div:last-child {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      margin-block-end: 1rem;
+    }
+  }
 </style>
