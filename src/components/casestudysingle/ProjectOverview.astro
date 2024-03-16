@@ -12,6 +12,7 @@ if (!images[imagePath2]) throw new Error(`"${imagePath}" does not exist in glob:
 <section class="main-grid">
   <article class="project-overview-grid">
     <Image src={images[imagePath]()} alt={altText} />
+
     <article>
       <div>
         <div>
@@ -67,7 +68,7 @@ if (!images[imagePath2]) throw new Error(`"${imagePath}" does not exist in glob:
       border-radius: 1.3rem;
     }
 
-    > article:nth-child(2) {
+    article:nth-child(2) {
       color: #fff;
       margin-block-start: -5%;
       display: flex;
