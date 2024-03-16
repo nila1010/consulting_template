@@ -1,12 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
-const { bgColor, cta, cardContent, cardHeight } = Astro.props;
+const { rows = "3", bgColor, cta, cardContent, cardHeight } = Astro.props;
 ---
 
 <section class="full-width-grid">
   {
     cardContent.map((card) => (
-      <article data-style={bgColor} data-cardheight={cardHeight} class="flow-space card">
+      <article style={`--span-row:${rows}`} data-style={bgColor} class="flow-space card">
         <Icon name={card.iconPath} />
         <h3>{card.heading}</h3>
         <p>{card.text}</p>
@@ -23,14 +23,17 @@ const { bgColor, cta, cardContent, cardHeight } = Astro.props;
 
 <style>
   section {
-    container: main / inline-size;
     margin-block-start: 3rem;
-    display: flex;
+    display: grid;
+    grid: auto / auto-flow max(16rem, 29%);
     gap: 2rem;
     padding-inline: max(2rem, 50% - var(--content) / 2);
     overflow: auto;
     > * {
-      flex: 1 0 16rem;
+      grid-row: span var(--span-row, 3);
+      display: grid;
+      grid: subgrid / auto;
+      gap: 0;
     }
   }
   [data-style="gray"] {
@@ -38,10 +41,6 @@ const { bgColor, cta, cardContent, cardHeight } = Astro.props;
   }
   [data-style="white"] {
     background-color: #fff;
-  }
-
-  [data-cardheight="small"] {
-    flex: 1 0 21rem;
   }
 
   article {
@@ -83,11 +82,5 @@ const { bgColor, cta, cardContent, cardHeight } = Astro.props;
   [data-icon="arrow"] {
     inline-size: 0.81675rem;
     block-size: 0.66825rem;
-  }
-
-  @container main (width < 500px) {
-    [data-cardheight="small"] {
-      flex: 1 0 16rem;
-    }
   }
 </style>
