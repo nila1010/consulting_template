@@ -1,10 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import Button from "./Button.astro";
-
-const pathname = new URL(Astro.request.url).pathname;
-const last = pathname.lastIndexOf("/");
-const currentPath = pathname.slice(1, last);
+import MainNavigation from "./MainNavigation.astro";
 ---
 
 <section>
@@ -24,31 +20,15 @@ const currentPath = pathname.slice(1, last);
       <Icon name="navicons/linkedin" />
     </div>
   </article>
-  <article>
-    <div>
-      <Icon name="ask_experts_icon" />
-      <p>AskExperts</p>
-    </div>
-    <ul>
-      <a href="/"><li class={currentPath === "" ? "active" : ""}>About</li></a>
-      <a href="/servicesingle"><li class={currentPath === "servicesingle" ? "active" : ""}>Service Single</li></a>
-      <a href="/team"><li class={currentPath === "team" ? "active" : ""}>Team</li></a>
-      <a href="/casestudysingle"><li class={currentPath === "casestudysingle" ? "active" : ""}>Case Study Single</li></a>
-    </ul>
-    <Button btnIcon="true" buttonStyle="white" btnSize="small" text="+ (888) 452 1505" />
-    <div class="burger">
-      <span></span><span></span><span></span><span></span>
-    </div>
-  </article>
+  <MainNavigation />
 </section>
 
 <style>
   section {
     display: grid;
     background-color: var(--secondary-color-1);
-    container: nav / inline-size;
 
-    article:first-child {
+    article {
       display: flex;
       justify-content: space-between;
       padding-inline: max(2rem, 50% - var(--content) / 2);
@@ -67,124 +47,22 @@ const currentPath = pathname.slice(1, last);
           height: 1.08131rem;
         }
       }
+      p {
+        font-size: 0.875rem;
+        color: #fff;
+      }
     }
-    article p {
-      font-size: 0.875rem;
-      color: #fff;
-    }
 
-    article:last-child {
-      padding-block: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-inline: max(2rem, 50% - var(--content) / 2);
-      background: rgb(62 61 61 / 91%);
-      color: #fff;
-
-      button {
-        justify-self: end;
-      }
-      div {
-        display: flex;
-        gap: 0.3rem;
-        p {
-          font-size: 1.875rem;
-        }
-      }
-      ul {
-        padding: 0;
-        display: flex;
-        gap: 2.5rem;
-        li {
-          list-style: circle;
-        }
-
-        li:hover {
-          color: var(--secondary-color-3);
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        .active {
-          color: var(--secondary-color-3);
-          list-style: unset;
-        }
-      }
-      [data-icon] {
-        width: 1.85869rem;
-        height: 1.80669rem;
-      }
+    [data-icon="opening_hour_nav_icon"],
+    [data-icon="place_icon"] {
+      inline-size: 0.73644rem;
+      block-size: 0.95738rem;
     }
   }
 
-  [data-icon="opening_hour_nav_icon"],
-  [data-icon="place_icon"] {
-    inline-size: 0.73644rem;
-    block-size: 0.95738rem;
-  }
-
-  a {
-    all: unset;
-  }
-
-  @container nav (width < 970px) {
-    article:last-child {
-      p,
-      button {
-        display: none;
-      }
-    }
-  }
-  @container nav (width < 600px) {
+  @media (width < 600px) {
     section > article:first-child {
       display: none;
-    }
-    article:last-child {
-      & > ul {
-        display: none;
-      }
-      p {
-        display: block;
-      }
-      .burger {
-        display: block;
-        width: 50px;
-        height: 60px;
-        position: relative;
-        transition: 0.5s ease-in-out;
-        z-index: 11;
-        margin: 10px 20px;
-      }
-
-      .burger span {
-        display: block;
-        position: absolute;
-        height: 5px;
-        width: 100%;
-        background: var(--secondary-color-2);
-        transition: 1s ease-in-out;
-      }
-      span {
-        display: block;
-        position: absolute;
-        height: 5px;
-        width: 100%;
-        background: var(--secondary-color-2);
-        transition: 1s ease-in-out;
-      }
-
-      .burger span:nth-child(1) {
-        top: 10px;
-      }
-
-      .burger span:nth-child(2),
-      .burger span:nth-child(3) {
-        top: 25px;
-      }
-
-      .burger span:nth-child(4) {
-        top: 40px;
-      }
     }
   }
 </style>
